@@ -85,6 +85,21 @@ function DiagnosticPage({ kase, answers, onAnswer, onBack }: {
   onBack: () => void;
 }) {
   const [revealed, setRevealed] = useState(false);
+  const [codeEntry, setCodeEntry] = useState(false);
+  const [codeInput, setCodeInput] = useState('');
+  const [codeError, setCodeError] = useState(false);
+
+  function handleCodeSubmit() {
+    if (codeInput.trim().toLowerCase() === 'disrupt') {
+      setRevealed(true);
+      setCodeEntry(false);
+      setCodeInput('');
+      setCodeError(false);
+    } else {
+      setCodeError(true);
+      setCodeInput('');
+    }
+  }
   const score = answers.reduce((s: number, a, i) => s + (a == null ? 0 : kase.questions[i].options[a].score), 0);
   const answered = answers.filter(a => a != null).length;
   const caseNum = CASES.findIndex(c => c.id === kase.id) + 1;
@@ -175,20 +190,59 @@ function DiagnosticPage({ kase, answers, onAnswer, onBack }: {
 
         {/* Instructor reveal */}
         <div style={{ marginTop: 32, padding: '20px 0', borderTop: `1.5px solid ${P.ink}`, borderBottom: `1px solid ${P.ruleSoft}` }}>
-          {!revealed ? (
-            <button
-              onClick={() => setRevealed(true)}
-              style={{ border: `1px solid ${P.ink}`, background: 'transparent', color: P.ink, fontFamily: '"IBM Plex Mono"', fontSize: 11, letterSpacing: 2, padding: '11px 16px', cursor: 'pointer' }}
-            >
-              ↳ REVEAL INSTRUCTOR INTERPRETATION
-            </button>
-          ) : (
+          {revealed ? (
             <div>
               <div style={{ fontFamily: '"IBM Plex Mono"', fontSize: 11, letterSpacing: 2, color: P.accent, marginBottom: 8 }}>INSTRUCTOR INTERPRETATION</div>
               <p
                 style={{ margin: 0, fontFamily: '"Source Serif 4", Georgia, serif', fontSize: 15.5, lineHeight: 1.6, color: P.ink, maxWidth: 640 }}
                 dangerouslySetInnerHTML={{ __html: kase.instructorNote }}
               />
+            </div>
+          ) : !codeEntry ? (
+            <button
+              onClick={() => setCodeEntry(true)}
+              style={{ border: `1px solid ${P.ink}`, background: 'transparent', color: P.ink, fontFamily: '"IBM Plex Mono"', fontSize: 11, letterSpacing: 2, padding: '11px 16px', cursor: 'pointer' }}
+            >
+              ↳ REVEAL INSTRUCTOR INTERPRETATION
+            </button>
+          ) : (
+            <div>
+              <div style={{ fontFamily: '"IBM Plex Mono"', fontSize: 11, letterSpacing: 2, color: P.inkSoft, marginBottom: 12 }}>
+                INSTRUCTOR ACCESS — ENTER CODE
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 0 }}>
+                <input
+                  type="password"
+                  value={codeInput}
+                  onChange={e => { setCodeInput(e.target.value); setCodeError(false); }}
+                  onKeyDown={e => e.key === 'Enter' && handleCodeSubmit()}
+                  placeholder="Enter code"
+                  autoFocus
+                  style={{
+                    fontFamily: '"IBM Plex Mono"', fontSize: 13, padding: '9px 14px',
+                    border: `1px solid ${codeError ? P.accent : P.rule}`,
+                    borderRight: 'none', background: P.card, color: P.ink,
+                    outline: 'none', width: 200,
+                  }}
+                />
+                <button
+                  onClick={handleCodeSubmit}
+                  style={{ fontFamily: '"IBM Plex Mono"', fontSize: 11, letterSpacing: 2, padding: '10px 16px', border: `1px solid ${P.ink}`, background: P.ink, color: P.paper, cursor: 'pointer' }}
+                >
+                  UNLOCK
+                </button>
+                <button
+                  onClick={() => { setCodeEntry(false); setCodeInput(''); setCodeError(false); }}
+                  style={{ fontFamily: '"IBM Plex Mono"', fontSize: 11, letterSpacing: 2, padding: '10px 14px', border: `1px solid ${P.rule}`, borderLeft: 'none', background: 'transparent', color: P.inkSoft, cursor: 'pointer' }}
+                >
+                  ✕
+                </button>
+              </div>
+              {codeError && (
+                <p style={{ margin: '8px 0 0', fontFamily: '"IBM Plex Sans"', fontSize: 12, color: P.accent }}>
+                  Incorrect code. Try again.
+                </p>
+              )}
             </div>
           )}
         </div>
