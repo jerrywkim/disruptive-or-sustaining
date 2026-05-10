@@ -18,10 +18,10 @@ function saveAnswers(all: AllAnswers) {
 }
 
 const CASE_PHOTOS: Record<string, string> = {
-  uber: '/masthead-uber.png',
-  tesla: '/masthead-tesla.png',
-  iphone: '/masthead-iphone.png',
-  llm: '/masthead-llm.png',
+  uber: '/masthead-uber.jpg',
+  tesla: '/masthead-tesla.jpg',
+  iphone: '/masthead-iphone.jpg',
+  llm: '/masthead-llm.jpg',
 };
 
 function CasePhoto({ caseId, height }: { caseId: string; height: number }) {
