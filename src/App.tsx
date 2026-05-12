@@ -118,9 +118,6 @@ function DiagnosticPage({ kase, answers, onAnswer, onBack }: {
       {/* Masthead photo */}
       <div style={{ position: 'relative', width: '100%', height: 220, flexShrink: 0, borderBottom: `1.5px solid ${P.ink}` }}>
         <CasePhoto caseId={kase.id} height={220} />
-        <div style={{ position: 'absolute', left: 56, bottom: 18, padding: '8px 14px', background: P.paper, fontFamily: '"IBM Plex Mono"', fontSize: 10, letterSpacing: 2, color: P.inkSoft }}>
-          {kase.figCaption}
-        </div>
         <button
           onClick={onBack}
           style={{ position: 'absolute', right: 56, bottom: 18, padding: '8px 14px', background: P.paper, border: `1px solid ${P.rule}`, fontFamily: '"IBM Plex Mono"', fontSize: 10, letterSpacing: 2, color: P.inkSoft, cursor: 'pointer' }}
