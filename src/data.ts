@@ -30,7 +30,6 @@ export interface Case {
   shortTitle: string;
   era: string;
   blurb: string;
-  figCaption: string;
   questions: Question[];
   instructorNote: string;
 }
@@ -125,7 +124,6 @@ export const CASES: Case[] = [
     shortTitle: 'Uber',
     era: 'San Francisco · 2010–2012',
     blurb: 'Uber entered urban transportation with app-based ride-hailing, real-time tracking, digital payment, driver ratings, and dynamic pricing. Compare this to traditional taxis at the time of Uber\'s entry — judge it then, not now.',
-    figCaption: 'FIG. 1  ·  RIDE-HAILING IN THE CITY  ·  PHOTOGRAPH',
     instructorNote: `Uber often tilts <strong>sustaining</strong>, not disruptive. Mainstream taxi riders did value app-based booking, tracking, and cashless payment — taxi companies could have profitably adopted those features, and core customers would have welcomed them. Uber entered head-on against the incumbents' existing customers rather than from an overlooked or low-end foothold, and on most dimensions riders cared about it was better, not worse, from day one. Christensen himself argued Uber is sustaining for these reasons. The asset-light platform model, regulatory arbitrage, and surge pricing make it strategically novel — but novelty isn't the same as disruption in his sense.`,
     questions: BASE_QUESTIONS({
       wtp: 'At entry, would mainstream taxi riders have valued Uber\'s app-booking, tracking, cashless pay, and ratings more than traditional taxi service?',
@@ -141,14 +139,13 @@ export const CASES: Case[] = [
     shortTitle: 'Tesla',
     era: 'Silicon Valley · 2008–2013',
     blurb: 'Tesla entered the auto market with the Roadster and early Model S — high-end electric vehicles with software-defined performance, over-the-air updates, and a direct sales model. Consider incumbents like GM, Ford, and Toyota at the time of entry.',
-    figCaption: 'FIG. 2  ·  ELECTRIC VEHICLE CHARGING  ·  PHOTOGRAPH',
     instructorNote: `Tesla is <strong>not a classic low-end disruption</strong>. It entered at the high end of the market with expensive, status-signaling vehicles — exactly the opposite of the foothold pattern Christensen describes. Mainstream car buyers couldn't afford the Roadster or early Model S. Incumbents had weak incentives to prioritize EVs when their most profitable customers were still buying gasoline trucks and SUVs. Tesla is better understood as a high-end or new-market entry that subsequently improved and moved downstream. Some argue it has had disruptive consequences over time — but at entry, the trajectory was high-to-low, not low-to-mainstream.`,
     questions: BASE_QUESTIONS({
-      wtp: 'Did mainstream car buyers initially value Tesla\'s electric drivetrain, software features, and design more than comparable gasoline vehicles at similar price points?',
-      incentive: 'Did incumbent automakers have strong incentives to prioritize EVs when their profitable customers were still buying gasoline vehicles, trucks, and SUVs?',
-      core: 'Would incumbents\' core customers have welcomed a shift toward expensive EVs at the time of Tesla\'s entry?',
+      wtp: 'Did mainstream car buyers have a higher willingness to pay for Tesla\'s electric drivetrain, software features, and design relative to comparable size gasoline vehicles?',
+      incentive: 'Did incumbent automakers have strong incentives to produce EVs once Tesla entered with their vehicles?',
+      core: 'Would incumbents\' core customers have welcomed a shift toward EVs at the time of Tesla\'s entry?',
       foothold: 'Did Tesla enter through low-end or overlooked customers, or through premium/high-status early adopters?',
-      performance: 'Was Tesla initially worse on mainstream dimensions such as range, charging convenience, and affordability, while better on acceleration and design?',
+      performance: 'Was Tesla initially worse on mainstream dimensions such as performance, design or quality?',
     }),
   },
   {
@@ -156,15 +153,14 @@ export const CASES: Case[] = [
     title: 'iPhone vs. Smartphones',
     shortTitle: 'iPhone',
     era: 'Cupertino · 2007–2010',
-    blurb: 'Apple introduced the iPhone as a premium device combining phone, internet browser, music player, touchscreen interface, and app ecosystem. Compare it to incumbent phones — including BlackBerry and Nokia — at the time of entry.',
-    figCaption: 'FIG. 3  ·  TOUCHSCREEN SMARTPHONE  ·  PHOTOGRAPH',
+    blurb: 'Apple introduced the iPhone as a device combining phone, internet browser, music player, touchscreen interface, and app ecosystem. Compare it to incumbent phones — including BlackBerry and Nokia — at the time of entry.',
     instructorNote: `The iPhone is <strong>not a simple case of classic disruption</strong>. It entered at the premium end of the market and improved dimensions many existing smartphone users already valued — internet access, media, interface. BlackBerry users, corporate IT departments, and existing smartphone buyers had reason to notice it immediately. Incumbents had strong incentives to respond. However, the iPhone did redefine the basis of competition (from keyboards to touchscreens, from enterprise to consumer) and dramatically expanded the market. This makes it a useful <em>debate case</em>: students can argue both sides. The strongest argument for disruption is the new-market expansion; the strongest argument against is the premium entry point and high WTP from day one.`,
     questions: BASE_QUESTIONS({
       wtp: 'Did high-end phone users initially value the iPhone\'s touchscreen, browser, media experience, and design more than existing smartphones like BlackBerry?',
       incentive: 'Did incumbent phone makers and carriers have incentives to respond with better mobile internet, touchscreens, and app ecosystems?',
       core: 'Would incumbents\' core customers — corporate BlackBerry users, enterprise IT — have welcomed iPhone-like features?',
-      foothold: 'Did the iPhone begin with low-end or non-consuming customers, or with premium mainstream consumers willing to pay $499–$599?',
-      performance: 'Was the iPhone initially worse on business-phone dimensions (keyboard, enterprise email, battery life) while better on browsing and consumer experience?',
+      foothold: 'Did the iPhone begin with low-end or non-consuming customers, or with premium mainstream consumers willing to pay a premium?',
+      performance: 'Was the iPhone initially worse on core smartphone dimensions (e.g., browsing, user experience, design, etc.)?',
     }),
   },
   {
@@ -173,14 +169,13 @@ export const CASES: Case[] = [
     shortTitle: 'LLMs',
     era: 'Global · 2022–present',
     blurb: 'Large language models can generate, summarize, classify, draft, code, and analyze text at scale. Consider their use in office work — writing, analysis, communication, and administration — and compare them to existing tools like search engines, consultants, templates, and productivity software.',
-    figCaption: 'FIG. 4  ·  AI-ASSISTED KNOWLEDGE WORK  ·  PHOTOGRAPH',
     instructorNote: `LLMs are best understood as a <strong>hybrid or ambiguous case</strong> — which makes them valuable for discussion. In many enterprise contexts, they look sustaining: Microsoft, Google, Salesforce, and Adobe all have strong incentives to integrate LLM capabilities, and core customers welcome Copilot-style features. But in other contexts, LLMs are disruptive: they give non-experts — junior analysts, small businesses, individuals — access to capabilities that previously required expensive specialized labor. The disruption may not be to Microsoft Word; it may be to consulting firms, junior knowledge workers, and specialized service providers who served the non-consuming market. Encourage students to specify <em>which incumbents</em> they're analyzing and <em>which customer segment</em> they have in mind.`,
     questions: BASE_QUESTIONS({
       wtp: 'Do mainstream office workers and firms value LLMs more than existing tools — search engines, templates, junior analysts, consultants, or productivity software?',
       incentive: 'Do incumbents like Microsoft, Google, Salesforce, and consulting firms have strong incentives to incorporate LLM capabilities into their products?',
       core: 'Would core customers be pleased if their existing software tools added LLM-based drafting, summarizing, coding, and analysis?',
       foothold: 'Are LLMs initially serving overlooked or non-consuming users who previously couldn\'t afford writing, coding, analysis, or design support?',
-      performance: 'Are LLMs currently worse than expert humans on accuracy, judgment, and accountability — while better on speed, accessibility, and cost?',
+      performance: 'Are LLMs currently worse than expert humans on accuracy, speed, judgment, cost, and or accountability?',
     }),
   },
 ];
