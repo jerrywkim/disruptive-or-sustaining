@@ -166,7 +166,7 @@ export const CASES: Case[] = [
   {
     id: 'llm',
     title: 'LLMs for Search',
-    shortTitle: 'LLMs',
+    shortTitle: 'ChatGPT',
     era: 'Global · 2022–present',
     blurb: 'In November 2022, OpenAI released ChatGPT, a large language model (LLM) that quickly gained attention for its ability to generate human-like text and answer questions on a wide range of topics. Consider how the incumbent search engines (Google, Microsoft, etc.) would view this innovation at the time of ChatGPT\'s release.',
     instructorNote: `LLMs are best understood as a <strong>hybrid or ambiguous case</strong> — which makes them valuable for discussion. In many enterprise contexts, they look sustaining: Microsoft, Google, Salesforce, and Adobe all have strong incentives to integrate LLM capabilities, and core customers welcome Copilot-style features. But in other contexts, LLMs are disruptive: they give non-experts — junior analysts, small businesses, individuals — access to capabilities that previously required expensive specialized labor. The disruption may not be to Microsoft Word; it may be to consulting firms, junior knowledge workers, and specialized service providers who served the non-consuming market. Encourage students to specify <em>which incumbents</em> they're analyzing and <em>which customer segment</em> they have in mind.`,
